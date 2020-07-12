@@ -5,24 +5,24 @@ var confirmCharacter;
 var confirmUppercase;
 var confirmLowercase;
 
-// Password values that will be generated
+// Password values that will be generated / possible variable values
 
 character = [ "!", "#", "$", "%", "&,", "'","(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"];
 space = [];
 
-// created this variable outside to make it global
+// created this variable outside if statement to make it global
 
 var choices;
 
-//Uppercase conversion for letters
+//Uppercase conversion for letters, had to look this one up
 
 var toUpper = function (x) {
     return x.toUpperCase();
 };
 
-//created a var for conversion
+//created a var for conversion, looked it up
 alpha2 = alpha.map(toUpper);
 
 // created variable to start prompts when generate is clicked.
@@ -34,7 +34,7 @@ start.addEventListener("click", function () {
     document.getElementById("password").placeholder = ps;
 });
 
-//Function that is run when user begins input
+//Function that is run when user begins input will gather variables
 
 function generatePassword() {
     enter = parseInt(prompt("How many characters?"));
@@ -53,7 +53,7 @@ if (!confirmCharacter && !confirmNumber && !confirmUppercase && !confirmLowercas
     choices = alert("You must enter a value!");
 
 // I think I can shorten these things up using stuff we learned this week but to be honest Im still getting those down. But I know this code below can be consolidated. 
-
+// these are all the possible outcomes of the user inputs. there is one for every OK and for every CANCEL
 }  
  else if (confirmCharacter && confirmNumber && confirmUppercase) {
      choices = character.concat(number, alpha2);
