@@ -106,7 +106,7 @@ for (var i = 0; i < enter; i++) {
     password.push(userChoices);
 }
 
-// this block puts the randomly generated password in the textbox. (used the slack assist for this one, kept trying to run a function but making the text box an object is way better)
+// this block puts the randomly generated password in the textbox. (used the slack assist for this one, kept trying to run a function but making the text box an object and inserting through that is the way to go)
 var ps = password.join("");
 var textbox = document.querySelector("#password")
 textbox.value = password
