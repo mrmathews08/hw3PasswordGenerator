@@ -1,26 +1,31 @@
-// Creat some sweet variable 
+// Creat some sweet variables for user inputs
 var enter;
 var confirmNumber;
 var confirmCharacter;
 var confirmUppercase;
 var confirmLowercase;
 
-// Password var values
+// Password values that will be generated
 
 character = [ "!", "#", "$", "%", "&,", "'","(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"];
 space = [];
 
+// created this variable outside to make it global
+
 var choices;
 
 //Uppercase conversion for letters
+
 var toUpper = function (x) {
     return x.toUpperCase();
 };
 
 //created a var for conversion
 alpha2 = alpha.map(toUpper);
+
+// created variable to start prompts when generate is clicked.
 
 var start = document.querySelector(".btn");
 
@@ -29,7 +34,7 @@ start.addEventListener("click", function () {
     document.getElementById("password").placeholder = ps;
 });
 
-//Function for password generator
+//Function that is run when user begins input
 
 function generatePassword() {
     enter = parseInt(prompt("How many characters?"));
@@ -47,9 +52,11 @@ function generatePassword() {
 if (!confirmCharacter && !confirmNumber && !confirmUppercase && !confirmLowercase) {
     choices = alert("You must enter a value!");
 
+// I think I can shorten these things up using stuff we learned this week but to be honest Im still getting those down. But I know this code below can be consolidated. 
+
 }  
  else if (confirmCharacter && confirmNumber && confirmUppercase) {
-     choices = character.contact(number, alpha2);
+     choices = character.concat(number, alpha2);
  } 
  else if (confirmCharacter && confirmNumber && confirmUppercase) {
      choices = character.concat(number, alpha);
@@ -91,19 +98,22 @@ else if (confirmUppercase) {
     choices = space.concat(alpha2);
 };
 
+// array placeholder for user input of length
 var password = [];
-
-
+// loop to find random variables in all classes of variables.
 for (var i = 0; i < enter; i++) {
     var userChoices = choices[Math.floor(Math.random() * choices.length)];
     password.push(userChoices);
 }
 
+// this block puts the randomly generated password in the textbox. (used the slack assist for this one, kept trying to run a function but making the text box an object is way better)
 var ps = password.join("");
-UserInput(ps);
-return ps;
-
+console.log(password)
+var textbox = document.querySelector("#password")
+console.log(textbox)
+textbox.value = password
 }
+ 
 
 
 
